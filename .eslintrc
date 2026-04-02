@@ -1,0 +1,13 @@
+// .eslintrc.json or .eslintrc.js
+{
+  "env": {
+    "jest": true,
+    "node": true
+  },
+  "globals": {
+    "page": "readonly",
+    "browser": "readonly",
+    "context": "readonly",
+    "jestPuppeteer": "readonly"
+  }
+}
