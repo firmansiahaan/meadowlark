@@ -1,5 +1,6 @@
 const express = require('express')
 const expressHandlebars = require('express-handlebars')
+const fortune = require('./lib/fortune.js')
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -22,8 +23,8 @@ const fortunes = [
 ]
 
 app.get('/about', (req, res) => {
-    const randomFortune = fortunes[Math.floor(Math.random()*fortunes.length)]
-    res.render('about', { fortune: randomFortune })
+    const randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)]
+    res.render('about', { fortune = fortune.getFortune() })
 })
 
 // custom 404 page
