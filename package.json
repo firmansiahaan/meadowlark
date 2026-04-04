@@ -4,7 +4,6 @@
   "description": "Meadowlark Travel",
   "main": "meadowlark.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node meadowlark.js",
     "test": "jest",
     "lint": "eslint meadowlark.js lib"
   },
@@ -21,24 +20,13 @@
   },
   "homepage": "https://github.com/firmansiahaan/meadowlark#readme",
   "dependencies": {
-    "aws-sdk": "^2.1693.0",
     "body-parser": "^2.2.2",
-    "connect-redis": "^3.4.1",
-    "cookie-parser": "^1.4.7",
-    "dotenv": "^17.4.0",
     "express": "^5.2.1",
     "express-handlebars": "^8.0.7",
-    "express-session": "^1.19.0",
-    "flash": "^1.1.0",
-    "mongodb": "^7.1.1",
-    "mongoose": "^5.13.8",
-    "multiparty": "^4.2.3",
-    "nodemailer": "^8.0.4",
-    "uuid": "^13.0.0"
+    "multiparty": "^4.2.3"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "cross-env": "^10.1.0",
     "eslint": "^10.1.0",
     "globals": "^17.4.0",
     "install": "^0.13.0",
