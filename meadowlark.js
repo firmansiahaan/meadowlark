@@ -1,7 +1,18 @@
 /* eslint-disable no-undef */
 const express = require('express')
 const expressHandlebars = require('express-handlebars')
-const fortune = require('./lib/fortune.js')
+const bodyParser = require('body-parser')
+const multiparty = require('multiparty')
+const cookieParser = require('cookie-parser')
+const expressSession = require('express-session')
+const RedisStore = require('connect-redis')(expressSession)
+
+const handlers = require('./lib/handlers')
+const weatherMiddlware = require('./lib/middleware/weather')
+
+const credentials = require('./credentials')
+
+require('./db')
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -43,10 +54,10 @@ app.get('/', handlers.home)
 
 app.get('/about', handlers.about)
 
-app.get('/about', (req, res) => {
-    const randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)]
-    res.render('about', { fortune = fortune.getFortune() })
-})
+// handlers for browser-based form submission
+app.get('/newsletter-signup', handlers.newsletterSignup)
+app.post('/newsletter-signup/process', handlers.newsletterSignupProcess)
+app.get('/newsletter-signup/thank-you', handlers.newsletterSignupThankYou)
 
 app.get('/headers', (req, res) => {
     res.type('text/plain')
